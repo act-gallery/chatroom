@@ -33,7 +33,7 @@
   </parent>
 
   <properties>
-    <app.entry>demo.chatroom.ChatApp</app.entry>
+    <app.entry>demo.chatroom.ChatroomService</app.entry>
   </properties>
 
 </project>

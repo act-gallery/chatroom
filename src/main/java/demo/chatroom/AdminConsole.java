@@ -20,28 +20,20 @@ package demo.chatroom;
  * #L%
  */
 
-import act.cli.CliContext;
 import act.cli.Command;
 import act.cli.Required;
-import act.util.Lazy;
 import act.ws.WebSocketConnectionManager;
-import okhttp3.*;
-import org.osgl.util.S;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
-@Singleton
-@Lazy
-public class ConsoleApp {
+public class AdminConsole {
 
     @Inject
     private WebSocketConnectionManager connectionManager;
 
-    @Command(name = "send", help = "Send message to websocket server")
+    @Command(name = "send", help = "Send broadcast message to all connected users")
     public void send(@Required("specify the message to be sent") String message) {
-        connectionManager.sendToUrl(message + " - admin broadcast", "/msg");
+        connectionManager.sendToUrl("[admin-broadcast] " + message, "/msg");
     }
-
 
 }
